@@ -135,6 +135,17 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void getIMEI(Promise promise) {
+    try {
+      TelephonyManager tm = (TelephonyManager) this.reactContext.getSystemService(Context.TELEPHONY_SERVICE);
+      final String imei = tm.getDeviceId();
+      promise.resolve(imei != null ? imei : "");
+    } catch (Exception e) {
+      promise.resolve("");
+    }
+  }
+
+  @ReactMethod
   public void getMacAddress(Promise p) {
     String macAddress = getWifiInfo().getMacAddress();
 
