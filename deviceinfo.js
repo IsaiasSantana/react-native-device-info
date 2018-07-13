@@ -25,6 +25,9 @@ module.exports = {
   getMACAddress: function() {
     return RNDeviceInfo.getMacAddress();
   },
+  getIMEI: function() {
+    return RNDeviceInfo.getIMEI();
+  },
   getDeviceId: function() {
     return RNDeviceInfo.deviceId;
   },
